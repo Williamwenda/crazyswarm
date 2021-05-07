@@ -8,7 +8,7 @@ import numpy as np
 TAKEOFF_DURATION = 5.5
 TIME_DURATION = 5.0
 
-HEIGHT = 1.5
+HEIGHT = 1.0
 sleepRate = 30
 
 
@@ -40,17 +40,17 @@ def main():
     print("press button to take off ...")
     swarm.input.waitUntilButtonPressed()
 
-    cf.takeoff(targetHeight=HEIGHT, duration=3.5+HEIGHT)
+    cf.takeoff(targetHeight=HEIGHT, duration=5.5)
     swarm.input.waitUntilButtonPressed()
     print("press button to start the circle ...")
     swarm.input.waitUntilButtonPressed()
 
-    goCircle(timeHelper, cf, radius=1.5, round_num=1.0, omega=0.2)
+    # goCircle(timeHelper, cf, radius=0.6, round_num=3.0, omega=0.6)
     print("press button to land ...")
     swarm.input.waitUntilButtonPressed()
 
     print("landing ...")
-    cf.land(targetHeight=0.04, duration=3.5)   # for cf Bolt targetHeight = 0.1
+    cf.land(targetHeight=0.04, duration=5.5)   # for cf Bolt targetHeight = 0.1
     timeHelper.sleep(TIME_DURATION)
 
 
