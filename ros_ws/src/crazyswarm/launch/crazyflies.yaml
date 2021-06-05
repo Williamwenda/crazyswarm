@@ -2,7 +2,7 @@ crazyflies:
 - channel: 100
   id: 5
   initialPosition:
-  - 0.0
+  - 1.5
   - 0.0
   - 0.0
   type:  cfBolt    # default  #cfBolt

@@ -8,7 +8,7 @@ import numpy as np
 TAKEOFF_DURATION = 5.5
 TIME_DURATION = 5.0
 
-HEIGHT = 1.0
+HEIGHT = 0.5
 sleepRate = 30
 
 
@@ -37,6 +37,10 @@ def main():
     swarm = Crazyswarm()
     timeHelper = swarm.timeHelper
     cf = swarm.allcfs.crazyflies[0]
+    print("press button to start logging data ...")
+    swarm.input.waitUntilButtonPressed()
+
+    cf.setParam("usd/logging", 1)   # set "usd.logging" to 1 to start log
     print("press button to take off ...")
     swarm.input.waitUntilButtonPressed()
 
@@ -45,13 +49,18 @@ def main():
     print("press button to start the circle ...")
     swarm.input.waitUntilButtonPressed()
 
-    # goCircle(timeHelper, cf, radius=0.6, round_num=3.0, omega=0.6)
+    # goCircle(timeHelper, cf, radius=1.5, round_num=6.0, omega=0.4)
+
     print("press button to land ...")
     swarm.input.waitUntilButtonPressed()
 
     print("landing ...")
-    cf.land(targetHeight=0.04, duration=5.5)   # for cf Bolt targetHeight = 0.1
+    cf.land(targetHeight=0.1, duration=5.5)   # for cf Bolt targetHeight = 0.1
     timeHelper.sleep(TIME_DURATION)
+
+    print("press button to stop logging data ...")
+    swarm.input.waitUntilButtonPressed()
+    cf.setParam("usd/logging", 0)  # set "usd.logging" to 0 to stop logging
 
 
 if __name__ == "__main__":
