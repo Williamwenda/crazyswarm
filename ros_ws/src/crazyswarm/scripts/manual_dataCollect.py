@@ -13,6 +13,10 @@ def main():
 
     cf.setParam("usd/logging", 1)   # set "usd.logging" to 1 to start logging
 
+    # print("press button to set param ...")
+    # swarm.input.waitUntilButtonPressed()
+    # cf.setParam("system/taskDump", 1)   # set "system dump" to 1 to check CPU usage
+
 
     print("press button to stop logging data ...")
     swarm.input.waitUntilButtonPressed()

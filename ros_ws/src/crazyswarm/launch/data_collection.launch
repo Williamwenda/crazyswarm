@@ -8,11 +8,9 @@
     <rosparam>
       world_frame: "/world"
       # Logging configuration (Use enable_logging to actually enable logging)
-      genericLogTopics: ["log1","log2", "log3"]
-      genericLogTopicFrequencies: [20, 20, 20]
-      genericLogTopic_log1_Variables: ["stateEstimate.x", "stateEstimate.y", "stateEstimate.z","pm.vbat"]
-      genericLogTopic_log2_Variables: ["tdoa2.d7-0", "tdoa2.d0-1", "tdoa2.d1-2","tdoa2.d2-3"]
-      genericLogTopic_log3_Variables: ["tdoa2.d3-4", "tdoa2.d4-5", "tdoa2.d5-6","tdoa2.d6-7"]
+      genericLogTopics: ["log1"]
+      genericLogTopicFrequencies: [50]
+      genericLogTopic_log1_Variables: ["pm.vbat"]
 
       # firmware parameters for all drones (use crazyflieTypes.yaml to set per type, or
       # allCrazyflies.yaml to set per drone)
@@ -52,10 +50,10 @@
   </node>
 
 
-  <node pkg="crazyswarm" type="crazyswarm_teleop" name="crazyswarm_teleop" output="screen">
+  <!-- <node pkg="crazyswarm" type="crazyswarm_teleop" name="crazyswarm_teleop" output="screen">
     <param name="csv_file" value="$(find crazyswarm)/launch/figure8_smooth.csv" />
     <param name="timescale" value="0.8" />
-  </node>
+  </node> -->
 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find crazyswarm)/launch/test.rviz"/>
 
